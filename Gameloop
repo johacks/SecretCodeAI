@@ -1,0 +1,11 @@
+function main:
+    set ia = LINEA_COMANDO
+    set diccionario = generarDiccionario()
+    // Asocia palabra a casilla, determina equipo que empieza (y por tanto qué equipo tiene menos casillas)
+    set tablero = generarTablero(ancho, alto, diccionario)
+    // Comienzo del gameloop
+    while true:  // Condiciones de parada: un equipo adivina todas las cartas, o un equipo adivina la negra
+        input = generaInput(ia, tablero)
+
+
+
