@@ -1,11 +1,26 @@
 function main:
-    set ia = LINEA_COMANDO
-    set diccionario = generarDiccionario()
+    set motor_grafico = LINEA_COMANDO
+    set ia_equipo_espias_azul = INPUT_USUARIO
+    set ia_jefe_espias_azul = INPUT_USUARIO
+    set ia_equipo_espias_rojo = INPUT_USUARIO
+    set ia_jefe_espias_rojo = INPUT_USUARIO
+    set diccionario = generarDiccionario() // Sustantivos solo
     // Asocia palabra a casilla, determina equipo que empieza (y por tanto qué equipo tiene menos casillas)
-    set tablero = generarTablero(ancho, alto, diccionario)
+    set tablero = generarTablero(
+        ancho,
+        alto,
+        diccionario,
+        motor_grafico,
+        ias_equipo_azul=(ia_equipo_espias_azul, ia_jefe_espias_azul),
+        ias_equipo_rojo=(ia_equipo_espias_rojo, ia_jefe_espias_rojo),
+        equipos_aleat=True)
     // Comienzo del gameloop
-    while true:  // Condiciones de parada: un equipo adivina todas las cartas, o un equipo adivina la negra
-        input = generaInput(ia, tablero)
-
-
+    while tablero.getGanador() != SIN_GANADOR:  // Condiciones de parada: un equipo adivina todas las cartas, o un equipo adivina la negra
+        // Nº palabras, pista
+        tablero.generaInputJefeEspias()
+        tablero.generaInputEquipoEspias()
+        tablero.calcularGanador()
+        tablero.rotarEquipo()
+    
+    
 
