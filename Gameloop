@@ -21,6 +21,3 @@ function main:
         tablero.generaInputEquipoEspias()
         tablero.calcularGanador()
         tablero.rotarEquipo()
-    
-    
-
