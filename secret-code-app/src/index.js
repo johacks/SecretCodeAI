@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'styles/index.css';
-import App from './App';
-// import DictionaryService from 'services/DictionaryService.js';
+import App from 'App';
 
 ReactDOM.render(
   <React.StrictMode>
