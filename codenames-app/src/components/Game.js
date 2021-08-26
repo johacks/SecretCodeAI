@@ -4,7 +4,7 @@ import Board from 'components/Board'
 class Game extends React.Component {
   render() {
     return (
-    <div>
+    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
       <Board 
         width={2}
         height={2}

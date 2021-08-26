@@ -1,46 +1,56 @@
 import 'styles/App.css';
-// import Game from 'components/Game';
-import Button from '@material-ui/core/Button';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import * as routes from 'routes';
+import HomePage from 'pages/HomePage';
+import GamePage from 'pages/GamePage';
+import HomePageLarge from 'pages/HomePageLarge';
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
+import { Component } from 'react';
 
-const styles = {
-  toolbar: {
-    alignItems: 'center',
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      footer: null,
+    }
   }
-};
-
-function Header(props) {
-
-  return (
-    <div>
-      <AppBar
-        position="fixed"
-        className={props.styles.toolbar}
-      >
-        <Toolbar>
-          {props.title}
-        </Toolbar>
-      </AppBar>
-    </div>
-  )
-}
-
-function App() {
-  return (
-    <div className="App">
-      <header>
+  render() {
+    return (
+      <div className="App">
         <Header
           title="CODENAMES"
-          styles={styles}
         />
-      </header>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-    </div>
-  );
+  
+        <main>
+          <Router>
+            <Switch>
+              <Route exact path="/" >
+                <Redirect to={routes.HOME_PATH} />
+              </Route>
+              <Route path={routes.HOME_PATH}>
+                <HomePage />
+              </Route>
+              <Route path="/homel">
+                <HomePageLarge />
+              </Route>
+              <Route path={routes.GAME_PATH}>
+                <GamePage />
+              </Route>
+            </Switch>
+          </Router>
+        </main>
+        
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;

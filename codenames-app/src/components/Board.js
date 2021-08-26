@@ -4,10 +4,34 @@ class Board extends React.Component {
   
   render() {
     return (
-    <div>
-      {this.props.height}
-      {this.props.width}
-      {this.props.words}
+    <div
+      style={{
+        display: "grid", 
+        gridTemplateColumns: "100px 100px 100px", 
+        gridTemplateRows: "auto", 
+        columnGap: "10px",
+        rowGap: "15px",
+        justifyContent: "center",
+        width: "fit-content"}}
+    >
+      <div>
+        CONTENIDO
+      </div>
+      <div>
+        CONTENIDO
+      </div>
+      <div>
+        CONTENIDO
+      </div>
+      <div>
+        CONTENIDO
+      </div>
+      <div>
+        CONTENIDO
+      </div>
+      <div>
+        CONTENIDO
+      </div>
     </div>
     );
   }
