@@ -6,9 +6,12 @@ class Game extends React.Component {
     return (
     <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
       <Board 
-        width={2}
-        height={2}
-        words={["word 1", "word 2", "palabra 3", "palabron 4"]}
+        width={4}
+        words={["word1", "word2", "palabra3", "palabron4",
+                "word1", "word2", "palabra3", "palabron4",
+                "word1", "word2", "palabra3", "palabron4",
+                "word1", "word2", "palabra3", "palabron4",
+                ]}
       />
     </div>
     );

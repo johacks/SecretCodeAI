@@ -1,37 +1,27 @@
 import React from 'react';
+import Card from 'components/Card';
 
 class Board extends React.Component {
-  
+
   render() {
+    let cards = this.props.words.map((word, index) => {
+      return <Card 
+        key={index}
+        content={word}
+      />
+    });
     return (
     <div
       style={{
-        display: "grid", 
-        gridTemplateColumns: "100px 100px 100px", 
+        display: "grid",
+        gridTemplateColumns: "repeat(" + this.props.width + ", 1fr)", 
         gridTemplateRows: "auto", 
-        columnGap: "10px",
-        rowGap: "15px",
+        columnGap: "5px",
+        rowGap: "10px",
         justifyContent: "center",
-        width: "fit-content"}}
+        width: "70%"}}
     >
-      <div>
-        CONTENIDO
-      </div>
-      <div>
-        CONTENIDO
-      </div>
-      <div>
-        CONTENIDO
-      </div>
-      <div>
-        CONTENIDO
-      </div>
-      <div>
-        CONTENIDO
-      </div>
-      <div>
-        CONTENIDO
-      </div>
+      {cards}
     </div>
     );
   }
