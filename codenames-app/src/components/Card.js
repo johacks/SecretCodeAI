@@ -1,4 +1,7 @@
 import { Component, createRef } from 'react';
+import 'styles/Card.css'
+
+const WIDTH_HEIGHT_RATIO = 2.41;
 
 class Card extends Component {
 
@@ -10,26 +13,31 @@ class Card extends Component {
     }
   }
 
-  componentDidMount() {
+  updateHeight() {
+    let currWidth = this.component.current ? this.component.current.offsetWidth : 50;
     this.setState({
-      height: this.component.current.offsetWidth * 0.41 + "px" 
+      height: currWidth / WIDTH_HEIGHT_RATIO + "px" 
     });
+  }
+
+  componentDidMount() {
+    this.updateHeight();
+    window.addEventListener('resize', () => this.updateHeight());
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => this.updateHeight());
   }
 
   render() {
     return (
-      <div ref={this.component}
-        style={{
-          border: "2px solid black",
-          borderRadius: "3px",
-          padding: "5px",
-          display: "flex",
-          justifyContent: "center",
-          height: this.state.height,
-          flexDirection: "column",
-        }}
+      <div
+        ref={this.component}
+        style={{ height: this.state.height }}
+        className="Card"
+
       >
-        {this.props.content}
+        <h2>{this.props.content}</h2>
       </div>
     );
   }

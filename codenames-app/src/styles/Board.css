@@ -1,0 +1,9 @@
+.Board {
+    display: grid;
+    grid-template-rows: auto; 
+    column-gap: 0.5em;
+    row-gap: 1em;
+    justify-content: center;
+    min-width: 50%;
+    max-width: 100%;
+}

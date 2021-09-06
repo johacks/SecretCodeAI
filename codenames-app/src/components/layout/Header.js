@@ -20,16 +20,16 @@ function Header(props) {
     };
 
     setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
+    window.addEventListener('resize', () => setResponsiveness());
 
     return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
+      window.removeEventListener('resize', () => setResponsiveness());
     }
   }, []);
 
 
   return (
-      <AppBar position="sticky" id="header" style={{display: mobileView ? "none" : "inline"}} >
+      <AppBar position="sticky" id="header" style={{display: mobileView ? 'none' : 'inline'}} >
         <Toolbar>
           <div className="Header">
             <Typography variant="h3">
